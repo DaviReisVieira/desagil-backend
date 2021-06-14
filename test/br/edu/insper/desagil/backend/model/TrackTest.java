@@ -2,6 +2,9 @@ package br.edu.insper.desagil.backend.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -75,5 +78,33 @@ class TrackTest {
 		Track track = new Track(artist, name, 145);
 		
 		assertEquals("2:25", track.getDurationString());
+	}
+	
+	@Test
+	void testOneCollaborator() {
+		List<Artist> collaborators = new ArrayList<>();
+		Artist collaborator = new Artist("Becky G");
+		
+		collaborators.add(collaborator);
+		
+		Track track = new CollaborationTrack(artist, collaborators, name, 145);
+		
+		
+		assertEquals("Anitta (feat. Becky G)", track.getFullArtistName());
+	}
+
+	@Test
+	void testTwoCollaborators() {
+		List<Artist> collaborators = new ArrayList<>();
+		Artist collaborator1 = new Artist("Ludmilla");
+		Artist collaborator2 = new Artist("Snoop Dog");
+		
+		collaborators.add(collaborator1);
+		collaborators.add(collaborator2);
+		
+		Track track = new CollaborationTrack(artist, collaborators, name, 145);
+		
+		
+		assertEquals("Anitta (feat. Ludmilla, Snoop Dog)", track.getFullArtistName());
 	}
 }
