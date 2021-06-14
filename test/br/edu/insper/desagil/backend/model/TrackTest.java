@@ -6,62 +6,74 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TrackTest {
+	private Artist artist;
+	private String name = "Aldacir Coelho";
+	
 	@BeforeEach
 	void setUp() {
+		artist = new Artist("Anitta");
 	}
 
 	@Test
 	void testZeroSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 0);
+		
+		assertEquals("0:00", track.getDurationString());
 	}
 
 	@Test
 	void testFiveSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 5);
+		
+		assertEquals("0:05", track.getDurationString());	
 	}
 
 	@Test
 	void testTwentyFiveSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 25);
+		
+		assertEquals("0:25", track.getDurationString());
 	}
 
 	@Test
 	void testOneMinuteZeroSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 60);
+		
+		assertEquals("1:00", track.getDurationString());
 	}
 
 	@Test
 	void testOneMinuteFiveSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 65);
+		
+		assertEquals("1:05", track.getDurationString());
 	}
 
 	@Test
 	void testOneMinuteTwentyFiveSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 85);
+		
+		assertEquals("1:25", track.getDurationString());
 	}
 
 	@Test
 	void testTwoMinutesZeroSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 120);
+		
+		assertEquals("2:00", track.getDurationString());
 	}
 
 	@Test
 	void testTwoMinutesFiveSeconds() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 125);
+		
+		assertEquals("2:05", track.getDurationString());
 	}
 
 	@Test
 	void testTwoMinutesTwentyFiveSeconds() {
-		assertEquals(true, false);
-	}
-
-	@Test
-	void testOneCollaborator() {
-		assertEquals(true, false);
-	}
-
-	@Test
-	void testTwoCollaborators() {
-		assertEquals(true, false);
+		Track track = new Track(artist, name, 145);
+		
+		assertEquals("2:25", track.getDurationString());
 	}
 }
